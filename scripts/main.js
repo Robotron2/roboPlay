@@ -25,3 +25,38 @@ let trackIndex = 0;
 let isPlaying = false;
 let isRandom = false;
 let updateTimer;
+
+// Create a test music list then you can create a separate file for that later
+
+const musicList = [
+	{
+		img: "images/ratherbe.jpg",
+		name: "Strongest",
+		artist: "Ina Woldsen ft Alan Walker",
+		music: "music/Strongest.mp3",
+	},
+	{
+		img: "images/stay.png",
+		name: "Stay",
+		artist: "The Kid LAROI, Justin Bieber",
+		music: "music/stay.mp3",
+	},
+	{
+		img: "images/fallingdown.jpg",
+		name: "Falling Down",
+		artist: "Wid Cards",
+		music: "music/fallingdown.mp3",
+	},
+	{
+		img: "images/faded.png",
+		name: "Faded",
+		artist: "Alan Walker",
+		music: "music/Faded.mp3",
+	},
+	{
+		img: "images/ratherbe.jpg",
+		name: "Rather Be",
+		artist: "Clean Bandit",
+		music: "music/Rather Be.mp3",
+	},
+];
