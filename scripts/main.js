@@ -151,3 +151,9 @@ const prevTrack = () => {
 	loadTrack(trackIndex);
 	playTrack();
 };
+
+// Seek to function
+const seekTo = () => {
+	let seekto = currTrack.duration * (seekSlider.value / 100);
+	currTrack.currentTime = seekto;
+};
