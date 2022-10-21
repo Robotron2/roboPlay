@@ -2,10 +2,12 @@
 	padding: 0;
 	margin: 0;
 }
+
 body {
 	font-family: Arial, Helvetica, sans-serif;
 	color: whitesmoke;
 }
+
 .player {
 	height: 95vh;
 	display: flex;
@@ -13,18 +15,21 @@ body {
 	flex-direction: column;
 	justify-content: center;
 }
+
 .wrapper {
 	border: 1px solid transparent;
 	padding: 30px;
 	border-radius: 20px;
 	box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
 }
+
 .details {
 	display: flex;
 	align-items: center;
 	flex-direction: column;
 	justify-content: center;
 }
+
 .track-art {
 	margin: 25px;
 	height: 250px;
@@ -40,12 +45,15 @@ body {
 	-webkit-border-radius: 190px;
 	border-radius: 190px;
 }
+
 .now-playing {
 	font-size: 1rem;
 }
+
 .track-name {
 	font-size: 2.5rem;
 }
+
 .track-artist {
 	margin-top: 5px;
 	font-size: 1.5rem;
@@ -59,9 +67,11 @@ body {
 	align-items: center;
 	margin-bottom: 30px;
 }
+
 .active {
 	color: black;
 }
+
 .repeat-track,
 .random-track,
 .playpause-track,
@@ -71,6 +81,7 @@ body {
 	opacity: 0.8;
 	transition: opacity 0.2s;
 }
+
 .repeat-track:hover,
 .random-track:hover,
 .playpause-track:hover,
@@ -78,11 +89,13 @@ body {
 .next-track:hover {
 	opacity: 1;
 }
+
 .slider-container {
 	display: flex;
 	justify-content: center;
 	align-items: center;
 }
+
 .seek-slider,
 .volume-slider {
 	-webkit-appearance: none;
@@ -93,6 +106,7 @@ body {
 	-webkit-transition: 0.2s;
 	transition: opacity 0.2s;
 }
+
 .seek-slider::-webkit-slider-thumb,
 .volume-slider::-webkit-slider-thumb {
 	-webkit-appearance: none;
@@ -105,24 +119,30 @@ body {
 	cursor: pointer;
 	border-radius: 100%;
 }
+
 .seek-slider:hover,
 .volume-slider:hover {
 	opacity: 1;
 }
+
 .seek-slider {
 	width: 60%;
 }
+
 .volume-slider {
 	width: 30%;
 }
+
 .current-time,
 .total-duration {
 	padding: 10px;
 }
+
 i.fa-volume-down,
 i.fa-volume-up {
 	padding: 10px;
 }
+
 i,
 i.fa-play-circle,
 i.fa-pause-circle,
@@ -130,6 +150,39 @@ i.fa-step-forward,
 i.fa-step-backward {
 	cursor: pointer;
 }
+
 .randomActive {
 	color: black;
+}
+
+/* Rotate Animation for the track art */
+
+.rotate {
+	animation: rotation 8s infinite linear;
+}
+@keyframes rotation {
+	from {
+		transform: rotate(0deg);
+	}
+	to {
+		transform: rotate(360deg);
+	}
+}
+
+/* Stroke section */
+
+.loader {
+	height: 70px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.loader .stroke {
+	background: #f1f1f1;
+	height: 150%;
+	width: 10px;
+	border-radius: 50px;
+	margin: 0px 5px;
+	animation: animate 1.4s linear infinite;
 }
