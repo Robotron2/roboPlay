@@ -157,3 +157,9 @@ const seekTo = () => {
 	let seekto = currTrack.duration * (seekSlider.value / 100);
 	currTrack.currentTime = seekto;
 };
+
+// Set Volume
+
+const setVolume = () => {
+	currTrack.volume = volumeSlider.value / 100;
+};
