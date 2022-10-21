@@ -1,19 +1,21 @@
 * {
 	padding: 0;
 	margin: 0;
+	overflow: hidden !important;
 }
 
 body {
-	font-family: Arial, Helvetica, sans-serif;
+	font-family: "Quicksand", sans-serif;
 	color: whitesmoke;
 }
 
 .player {
-	height: 95vh;
+	height: 100vh;
 	display: flex;
 	align-items: center;
 	flex-direction: column;
 	justify-content: center;
+	overflow: hidden !important;
 }
 
 .wrapper {

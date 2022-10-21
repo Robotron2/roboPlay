@@ -30,34 +30,34 @@ let updateTimer;
 
 const musicList = [
 	{
-		img: "trackart/ratherbe.jpg",
-		name: "Strongest",
-		artist: "Ina Woldsen ft Alan Walker",
-		music: "assets/music/Strongest.mp3",
+		img: "assets/trackarts/Unity.jpg",
+		name: "Unity",
+		artist: "Alan Walker ft. Walkers",
+		music: "assets/music/Unity.mp3",
 	},
 	{
-		img: "images/stay.png",
-		name: "Stay",
-		artist: "The Kid LAROI, Justin Bieber",
-		music: "music/stay.mp3",
+		img: "assets/trackarts/Paradise.jpg",
+		name: "Paradise",
+		artist: "Alan Walker,  K-391, Boy in Space",
+		music: "assets/music/Paradise.mp3",
 	},
 	{
-		img: "images/fallingdown.jpg",
-		name: "Falling Down",
-		artist: "Wid Cards",
-		music: "music/fallingdown.mp3",
-	},
-	{
-		img: "images/faded.png",
+		img: "assets/trackarts/Faded.jpg",
 		name: "Faded",
 		artist: "Alan Walker",
-		music: "music/Faded.mp3",
+		music: "assets/music/Faded.mp3",
 	},
 	{
-		img: "images/ratherbe.jpg",
-		name: "Rather Be",
-		artist: "Clean Bandit",
-		music: "music/Rather Be.mp3",
+		img: "assets/trackarts/EndOfTime.jpg",
+		name: "End Of Time",
+		artist: "K-391, Alan Walker & Ahrix ",
+		music: "assets/music/EndOfTime.mp3",
+	},
+	{
+		img: "assets/trackarts/Aurora.jpg",
+		name: "Aurora",
+		artist: "K-391 & RØRY ",
+		music: "assets/music/Aurora.mp3",
 	},
 ];
 
@@ -199,7 +199,7 @@ const loadTrack = (trackIndex) => {
 	currTrack.src = musicList[trackIndex].music;
 	currTrack.load();
 
-	trackArt.style.backgroundImage = `url( ${musicList[trackIndex]}.img )`;
+	trackArt.style.backgroundImage = `url( ${musicList[trackIndex].img} )`;
 	trackName.textContent = musicList[trackIndex].name;
 	trackArtist.textContent = musicList[trackIndex].artist;
 	nowPlaying.textContent = `Playing music  ${trackIndex + 1}   of  ${musicList.length}`;
