@@ -60,3 +60,25 @@ const musicList = [
 		music: "music/Rather Be.mp3",
 	},
 ];
+
+// Function that plays the song at the current music index
+loadTrack(trackIndex);
+
+const loadTrack = (trackIndex) => {
+	clearInterval(updateTimer);
+	reset();
+
+	currTrack.src = music - list[track - index].music;
+	curr - track.load();
+
+	trackArt.style.backgroundImage = "url(" + music - list[trackIndex].img + ")";
+	trackName.textContent = musicList[trackIndex].name;
+	trackArtist.textContent = musicList[trackIndex].artist;
+	nowPlaying.textContent = "Playing music " + (trackIndex + 1) + " of " + musicList.length;
+
+	updateTimer = setInterval(setUpdate, 1000);
+
+	currTrack.addEventListener("ended", nextTrack);
+
+	randomBg - color();
+};
