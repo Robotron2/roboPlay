@@ -61,8 +61,12 @@ const musicList = [
 	},
 ];
 
-// Function that plays the song at the current music index
-loadTrack(trackIndex);
+// Reset function
+const reset = () => {
+	currTime.textContent = "00:00";
+	totalDuration.textContent = "00:00";
+	seekSlider.value = 0;
+};
 
 const loadTrack = (trackIndex) => {
 	clearInterval(updateTimer);
@@ -83,17 +87,42 @@ const loadTrack = (trackIndex) => {
 	// randomBgColor();
 };
 
-// Reset function
-const reset = () => {
-	currTime.textContent = "00:00";
-	totalDuration.textContent = "00:00";
-	seekSlider.value = 0;
-};
+//Call the function that plays the song at the current music index
+loadTrack(trackIndex);
 
+// Random Track
 const randomTrack = () => {
 	isRandom ? pauseRandom() : playRandom();
 };
 const playRandom = () => {
 	isRandom = true;
 	randomIcon.classList.add("randomActive");
+};
+
+const pauseRandom = () => {
+	isRandom = false;
+	randomIcon.classList.remove("randomActive");
+};
+const repeatTrack = () => {
+	let currentIndex = trackIndex;
+	loadTrack(currentIndex);
+	playTrack();
+};
+const playpauseTrack = () => {
+	isPlaying ? pauseTrack() : playTrack();
+};
+
+const playTrack = () => {
+	currTrack.play();
+	isPlaying = true;
+	trackArt.classList.add("rotate");
+	wave.classList.add("loader");
+	playpauseBtn.innerHTML = '<i class="fa fa-pause-circle fa-5x"></i>';
+};
+const pauseTrack = () => {
+	currTrack.pause();
+	isPlaying = false;
+	trackArt.classList.remove("rotate");
+	wave.classList.remove("loader");
+	playpauseBtn.innerHTML = '<i class="fa fa-play-circle fa-5x"></i>';
 };
