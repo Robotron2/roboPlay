@@ -126,3 +126,17 @@ const pauseTrack = () => {
 	wave.classList.remove("loader");
 	playpauseBtn.innerHTML = '<i class="fa fa-play-circle fa-5x"></i>';
 };
+
+// Next Track Function
+const nextTrack = () => {
+	if (trackIndex < musicList.length - 1 && isRandom === false) {
+		trackIndex += 1;
+	} else if (trackIndex < musicList.length - 1 && isRandom === true) {
+		let randomIndex = Number.parseInt(Math.random() * musicList.length);
+		trackIndex = randomIndex;
+	} else {
+		trackIndex = 0;
+	}
+	loadTrack(trackIndex);
+	playTrack();
+};
