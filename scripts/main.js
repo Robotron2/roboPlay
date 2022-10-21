@@ -140,3 +140,14 @@ const nextTrack = () => {
 	loadTrack(trackIndex);
 	playTrack();
 };
+
+//Previous Track Function
+const prevTrack = () => {
+	if (trackIndex > 0) {
+		trackIndex -= 1;
+	} else {
+		trackIndex = musicList.length - 1;
+	}
+	loadTrack(trackIndex);
+	playTrack();
+};
