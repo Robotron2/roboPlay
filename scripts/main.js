@@ -68,28 +68,6 @@ const reset = () => {
 	seekSlider.value = 0;
 };
 
-const loadTrack = (trackIndex) => {
-	clearInterval(updateTimer);
-	reset();
-
-	currTrack.src = musicList[trackIndex].music;
-	currTrack.load();
-
-	trackArt.style.backgroundImage = `url( ${musicList[trackIndex]}.img )`;
-	trackName.textContent = musicList[trackIndex].name;
-	trackArtist.textContent = musicList[trackIndex].artist;
-	nowPlaying.textContent = `Playing music  ${trackIndex + 1}   of  ${musicList.length}`;
-
-	updateTimer = setInterval(setUpdate, 1000);
-
-	currTrack.addEventListener("ended", nextTrack);
-
-	// randomBgColor();
-};
-
-//Call the function that plays the song at the current music index
-loadTrack(trackIndex);
-
 // Random Track
 const randomTrack = () => {
 	isRandom ? pauseRandom() : playRandom();
@@ -163,3 +141,54 @@ const seekTo = () => {
 const setVolume = () => {
 	currTrack.volume = volumeSlider.value / 100;
 };
+
+function setUpdate() {
+	let seekPosition = 0;
+	if (!isNaN(currTrack.duration)) {
+		seekPosition = currTrack.currentTime * (100 / currTrack.duration);
+		seekSlider.value = seekPosition;
+
+		let currentMinutes = Math.floor(currTrack.currentTime / 60);
+		let currentSeconds = Math.floor(currTrack.currentTime - currentMinutes * 60);
+		let durationMinutes = Math.floor(currTrack.duration / 60);
+		let durationSeconds = Math.floor(currTrack.duration - durationMinutes * 60);
+
+		if (currentSeconds < 10) {
+			currentSeconds = `${currentSeconds}`;
+		}
+		if (durationSeconds < 10) {
+			durationSeconds = `0 ${durationSeconds}`;
+		}
+		if (currentMinutes < 10) {
+			currentMinutes = `0 ${currentMinutes}`;
+		}
+		if (durationMinutes < 10) {
+			durationMinutes = `0 ${durationMinutes}`;
+		}
+
+		currTime.textContent = `${currentMinutes}  : ${currentSeconds}`;
+		totalDuration.textContent = ` ${durationMinutes} : ${durationMinutes}`;
+	}
+}
+
+const loadTrack = (trackIndex) => {
+	clearInterval(updateTimer);
+	reset();
+
+	currTrack.src = musicList[trackIndex].music;
+	currTrack.load();
+
+	trackArt.style.backgroundImage = `url( ${musicList[trackIndex]}.img )`;
+	trackName.textContent = musicList[trackIndex].name;
+	trackArtist.textContent = musicList[trackIndex].artist;
+	nowPlaying.textContent = `Playing music  ${trackIndex + 1}   of  ${musicList.length}`;
+
+	updateTimer = setInterval(setUpdate, 1000);
+
+	currTrack.addEventListener("ended", nextTrack);
+
+	// randomBgColor();
+};
+
+//Call the function that plays the song at the current music index
+loadTrack(trackIndex);
