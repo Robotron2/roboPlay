@@ -68,17 +68,32 @@ const loadTrack = (trackIndex) => {
 	clearInterval(updateTimer);
 	reset();
 
-	currTrack.src = music - list[track - index].music;
-	curr - track.load();
+	currTrack.src = musicList[trackIndex].music;
+	currTrack.load();
 
-	trackArt.style.backgroundImage = "url(" + music - list[trackIndex].img + ")";
+	trackArt.style.backgroundImage = `url( ${musicList[trackIndex]}.img )`;
 	trackName.textContent = musicList[trackIndex].name;
 	trackArtist.textContent = musicList[trackIndex].artist;
-	nowPlaying.textContent = "Playing music " + (trackIndex + 1) + " of " + musicList.length;
+	nowPlaying.textContent = `Playing music  ${trackIndex + 1}   of  ${musicList.length}`;
 
 	updateTimer = setInterval(setUpdate, 1000);
 
 	currTrack.addEventListener("ended", nextTrack);
 
-	randomBg - color();
+	// randomBgColor();
+};
+
+// Reset function
+const reset = () => {
+	currTime.textContent = "00:00";
+	totalDuration.textContent = "00:00";
+	seekSlider.value = 0;
+};
+
+const randomTrack = () => {
+	isRandom ? pauseRandom() : playRandom();
+};
+const playRandom = () => {
+	isRandom = true;
+	randomIcon.classList.add("randomActive");
 };
